@@ -4,12 +4,13 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+¡HOLA! SOMOS BOUNCING SHIELD
 
-### More Information
+Concentramos todo nuestros esfuerzos y conocimientos 
+para proyectar tus ideas en Diseño y Desarrollo Web y Móvil Responsive.
 
-A place to include any other types of information that you'd like to include about yourself.
+Idea + Desarrollo + Diseño = Producto Genial ¿Hablamos?
 
-### Contact me
+### Contactanos
 
-[email@domain.com](mailto:email@domain.com)
+[bouncingshield@gmail.com](mailto:bouncingshield@gmail.com)
