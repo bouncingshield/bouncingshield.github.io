@@ -11,23 +11,23 @@ Creación del proyecto React Native e instalación de librería AirBnB Google Ma
 Primero creamos nuestra app en React Native, nuestra app se llamará myMapApp.
 
 
-```
-  react-native init myMapApp
-  cd myMapApp
-```
+{% highlight bash %}
+react-native init myMapApp
+cd myMapApp
+{% endhighlight  %}
 
 Ahora instalamos la librería para Google Maps de AirBnB.
 
-```
+{% highlight bash %}
 npm install --save react-native-maps
-```
+{% endhighlight  %}
 
 Enlazamos la librería con React Native
 
-```
+{% highlight bash %}
 npm install
 react-native link react-native-maps
-```
+{% endhighlight  %}
 
 En teoría ya nuestra app debería funcionar con los mapas por defecto de cada plataforma Maps en iOS y Maps en Android. Pero si queremos usar Google Maps en ambas plataformas tendremos que hacer algunos pasos adicionales:
 
@@ -55,20 +55,20 @@ Ahora nos iremos al menú de la izquierda en Credenciales. Y crearemos nuestra A
 Enlace de AirBnB Google Maps para iOS
 Instalar Cocoapods (si lo tenemos podemos saltar este paso)
 
-```javascript
+{% highlight javascript %}
 sudo gem install cocoapods
-```
+{% endhighlight  %}
 
 Configurar el proyecto para iOS
 
-```javascript
+{% highlight javascript %}
 cd ios
 pod init
-```
+{% endhighlight  %}
 
 Esto genera un archivo Podfile en nuestra, lo abriremos y editaremos su contenido
 
-```javascript
+{% highlight javascript %}
 # Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
 
@@ -95,7 +95,7 @@ target 'myMapApp' do
   pod 'GoogleMaps'
 
 end
-```
+{% endhighlight  %}
 
 Recuerda reemplazar el nombre de tu aplicación donde dice target
 
@@ -103,27 +103,27 @@ Y no te olvides de especificar la plataforma de iOS que utilizaras
 
 Si recibes este error:
 
-```javascript
+{% highlight javascript %}
 [!] The name of the given podspec `yoga` doesn't match the expected one `Yoga`
-```
+{% endhighlight  %}
 
 Cambia la linea de este modo (yoga en minúscula):
 
-```javascript
+{% highlight javascript %}
 pod "yoga", :path => "#{react_native_path}/ReactCommon/yoga"
-```
+{% endhighlight  %}
 
 Ahora en la terminal
 
-```javascript
+{% highlight javascript %}
 pod install
-```
+{% endhighlight  %}
 
 Al hacer esto se generara un nuevo proyecto en nuestra carpeta de iOS, lo abriremos con XCode
 
-```javascript
+{% highlight javascript %}
 open myMapApp.xcworkspace
-```
+{% endhighlight  %}
 
 Y copiamos la carpeta AirGoogleMaps que se encuentra dentro de /node_modules/react-native-maps/lib/ios al proyecto xcworkspace que tenemos abierto en el Xcode.
 
@@ -137,7 +137,7 @@ Quedando de esta forma
 
 Para usar las credenciales API abrimos el archivo AppDelegate.m en Xcode.
 
-```javascript
+{% highlight javascript %}
 #import "AppDelegate.h"
 
 #import <React/RCTBundleURLProvider.h>
@@ -166,7 +166,7 @@ Para usar las credenciales API abrimos el archivo AppDelegate.m en Xcode.
 }
 
 @end
-```
+{% endhighlight  %}
 
 Ahora iremos a Product -> Clean y luego Product -> Build para ejecutar nuestra aplicación.
 
@@ -175,7 +175,7 @@ Ahora iremos a Product -> Clean y luego Product -> Build para ejecutar nuestra a
 Enlace de AirBnB Google Maps para Android
 En nuestro proyecto debemos editar el archivo android/app/build.gradle
 
-```javascript
+{% highlight javascript %}
 dependencies {
   ...
   // Paste these line
@@ -194,11 +194,11 @@ Y también debemos agregar nuestra Api Key en Android/app/src/AndroidManifest.xm
       android:name="com.google.android.geo.API_KEY"
       android:value="YOUR GOOGLE MAPS API KEY HERE"/>
 </application>
-```
+{% endhighlight  %}
 
 Con esto ya tenemos nuestro proyecto React Native configurado en iOS y Android con Google Maps, ahora actualizamos el archivo App.js en nuestro proyecto React Native para incluir el Mapa
 
-```javascript
+{% highlight javascript %}
 import React, { Component } from 'react';
 import {
   StyleSheet,
@@ -237,4 +237,4 @@ export default class App extends Component {
     )
   }
 }
-```
+{% endhighlight  %}

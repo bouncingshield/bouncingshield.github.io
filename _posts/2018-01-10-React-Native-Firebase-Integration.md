@@ -19,9 +19,9 @@ Empezaremos por crear nuestra aplicación react-native base. Por ahora nuestra a
 
 He creado una aplicación base con:
 
-```
+{% highlight bash %}
 react-native init rn_firebase_analytics_aplication
-```
+{% endhighlight  %}
 
 
 
@@ -41,9 +41,9 @@ En el siguiente paso, instalaremos el plugin RNFirebase en IOS. Puedes encontrar
 
 Iremos a nuestro terminal y ejecutaremos el comando de instalación del plugin:
 
-```
+{% highlight bash %}
 npm install --save react-native-Firebase
-```
+{% endhighlight  %}
 
 Para que nuestra aplicación pueda conectarse con la consola de Firebase necesitamos un archivo que indique los valores asociados a nuestra cuenta. Ese archivo es el `GoogleService-Info.plist`. Este archivo lo podemos generar desde la web de la consola de Firebase: 
 
@@ -56,25 +56,25 @@ Seguiremos los pasos y descargaremos el archivo `GoogleService-Info.plist`, el c
 Ahora agregaremos el SDK de Firebase a nuestra aplicación:
 Necesitamos tener instalado `CocoaPods`; Para ello ejecutaremos lo siguiente en nuestro terminal desde la carpeta ios de nuestra aplicación:
 
-```
+{% highlight bash %}
 cd ios
 sudo gem install cocoapods
 pod init
-```
+{% endhighlight  %}
 
 Abre el archivo Podfile y añade lo siguiente:
-```
+{% highlight bash %}
 pod 'Firebase/Core'
-```
+{% endhighlight  %}
 
 Guarda el archivo.
 
 ![](https://cl.ly/2y2N0f1u0H1j/download/Image%202018-01-08%20at%206.50.51%20PM.png)
 
 Y ejecuta lo siguiente:
-```
+{% highlight bash %}
 pod install
-```
+{% endhighlight  %}
 
 Veras que se instalan algunos módulos de RNFirebase, además
 esto creara un archivo `.xcworkspace` para la aplicación. Usa el archivo para las futuras tareas de desarrollo de tu aplicación.
@@ -83,15 +83,15 @@ Ahora iniciamos el plugin en nuestra aplicación, en el archivo `ios/[tu_aplicac
 
 En las primeras lineas del archivo importamos la librería:
 
-```
+{% highlight c %}
 #import <Firebase.h>
-```
+{% endhighlight  %}
 
 Al comienzo del método `didFinishLaunchingWithOptions:(NSDictionary *)launchOptions`
 
-```
+{% highlight c %}
 [FIRaplicación configure];
-```
+{% endhighlight  %}
 
 Quedando de este modo:
 
@@ -117,9 +117,9 @@ Esta será una aplicación sencilla y básicamente queremos tener información d
 
 Esta sera la pantalla de nuestra aplicación:
 
-![](https://cl.ly/2i3a2u3J0g2f/download/Image%202018-01-08%20at%207.19.28%20PM.png)
+![](https://cl.ly/2i3a2u3J0g2f/download/Image%202018-01-08%20at%207.19.28%20PM.png){:width="300px" }
 
-```javascript
+{% highlight javascript %}
 import React, { Component } from 'react';
 import {
   Platform,
@@ -165,27 +165,28 @@ const styles = StyleSheet.create({
     margin: 10,
   }
 });
-```
+{% endhighlight  %}
+
 [https://gist.github.com/uokesita/394287f1df95787c4c81d4d39f7dad3a](https://gist.github.com/uokesita/394287f1df95787c4c81d4d39f7dad3a)
 
 
 
 Importaremos Firebase y Firebase.Analytics en nuestra aplicación y usaremos el método `componentDidMount` para enviar nuestro primer evento a la consola de Firebase.
 
-```
+{% highlight bash %}
 import Firebase from 'react-native-Firebase';
 const FirebaseAnalytics = Firebase.Analytics();
-```
+{% endhighlight  %}
 
 # LogEvent(name, params)
 
 Para resolver nuestro primer punto usaremos el método logEvent de Firebase en el evento de carga de nuestra pantalla:
 
-```
+{% highlight javascript %}
   componentDidMount(){
     FirebaseAnalytics.logEvent('pantalla_principal_cargada')
   }
-```
+{% endhighlight  %}
 
 Si corremos nuestra aplicación, y vamos a la consola de Firebase veremos que no se ha guardado ningún evento, esto es porque debemos habilitar el `DebugView` en el simulador IOS para ver los eventos en tiempo real.
 
@@ -203,11 +204,11 @@ Recuerda que puedes pasar parámetros a la función `logEvent` y estos pueden se
 
 Y con esta función podemos pasar parámetro a nuestro log del evento al presionar el botón. asi:
 
-```
+{% highlight javascript %}
   onPressComprar(){
     FirebaseAnalytics.logEvent('onPressComprar', {productId: 123})
   };
-```
+{% endhighlight  %}
 
 Firebase Posee unos eventos por defecto que puedes verificar para tener mas detalles de tus aplicaciones [https://rnFirebase.io/docs/v3.2.x/Analytics/reserved-events](https://rnFirebase.io/docs/v3.2.x/Analytics/reserved-events).
 
