@@ -47,7 +47,7 @@ Add non-recursive to your Framework Search Paths
 $(PROJECT_DIR)/../node_modules/@mapbox/react-native-mapbox-gl/ios
 {% endhighlight %}
 
-https://cl.ly/c4879c5391bd
+![](https://cl.ly/c4879c5391bd/Image%202018-11-15%20at%209.51.14%20PM.png)
 
 ### Add Run Script
 In the Build Phases tab, click the plus sign and then New Run Script Phase
