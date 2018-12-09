@@ -13,4 +13,4 @@ Idea + Desarrollo + Diseño = Producto Genial ¿Hablamos?
 
 ### Contactanos
 
-[bouncingshield@gmail.com](mailto:bouncingshield@gmail.com)
+[info@bouncingshield.com](mailto:info@bouncingshield.com)
